@@ -7,9 +7,6 @@
 #     print("Number is positive")
 # else:print("number is not positive")
 # from curses.textpad import rectangle
-from itertools import count
-from tkinter.font import names
-
 
 # დაწერეთ პროგრამა, რომლის მეშვეობითაც შეიტანთ ნებისმიერ რიცხვს. პროგრამამ
 # შეამოწმოს, თუ შეყვანილი რიცხვი 10-ის ჯერადია, დაბეჭდოს “რიცხვი ბოლოვდება 0-ით”, თუ
@@ -1211,3 +1208,576 @@ from tkinter.font import names
 #         pass
 # test()
 # print(x)
+
+# print({i: i*i for i in range(3)})
+
+# for i in range(3):
+#     continue
+#     print(i)
+
+
+# a = [1,3,5,6]
+# x = 0
+# for i in a:
+#     if i > 4: continue
+#     x += i
+# print(x)
+
+# my_list = [12,34,67,67]
+# my_list.append(113)
+# print(my_list)
+# my_list.insert(1,145)
+# print(my_list)
+# print(my_list.count(67))
+# print(my_list.index(145))
+# my_list.pop(3)
+# print(my_list)
+# my_list.remove(67)
+# print(my_list)
+# my_list.sort()
+# print(my_list)
+# my_list.reverse()
+# print(my_list)
+# new_list = my_list.copy()
+# print(new_list)
+# my_list.clear()
+# print(my_list)
+
+# my_str = "Hello"
+# print(my_str.upper())
+# print(my_str.lower())
+# new_str = "hello world"
+# print(new_str.capitalize())
+# print(new_str.title())
+# print(new_str.startswith("he"))
+# my_str =  " luka"
+# print(my_str.strip())
+# print(my_str.endswith("ka"))
+# print(new_str.replace(" ","|"))
+# print(new_str.split())
+# print("-".join(new_str.split()))
+# print(my_str.find("l"))
+# print(my_str.index("a"))
+# print(new_str.count("l"))
+# print(new_str.isnumeric())
+# print(new_str.isalpha())
+# my_new_str = "Ana"
+# print(my_new_str.isalpha())
+
+# class Rectangle:
+#     def __init__(self, width, length):
+#         self.width = width
+#         self.length = length
+#     def perimeter(self):
+#         return 2 * (self.width + self.length)
+#     def increase_width(self):
+#         self.width += 2
+# obj1 = Rectangle(3,4)
+# #ატრიბუტის ცვლილება შეგვიძლია ორი გზით
+# obj1.width += 3
+# obj1.increase_width()
+# print(obj1.perimeter())
+# #ორგვარად  შემიძლია გამოძახება
+# # print(obj1.perimeter())
+# # print(Rectangle.perimeter(obj1))
+# #
+# # print(obj1.length)
+# # del obj1.length
+# # print(obj1.length)
+# #
+# # del obj1
+# # del Rectangle
+# # print(obj1)
+
+# class Dog:
+#     """ამ კლასში ხდება ძაღლის სახელისა და ასაკის ინიციალიზაცია"""
+#     def __init__(self, name=None, age=0):
+#         self.name = name
+#         self.age = age
+# a = Dog("Jeka", 4)
+# b = Dog("Buddy", 3)
+#
+# print(f"{a.name} is {a.age} years old")
+#
+# c = Dog()
+# c.name = input("Enter your dog's name: ")
+# c.age  = int(input("Enter your dog's age: "))
+# max_age = max(a.age,b.age,c.age)
+# print(f"The oldest dog's age is {max_age}")
+#
+# print(dir(c))
+# print(help(c))
+# print(Dog.__doc__)
+
+# class Student:
+#     def __init__(self,name,surname):
+#         self.name = name
+#         self.surname = surname
+#     @property
+#     def fullname(self):
+#         return f"{self.name} {self.surname}"
+#     @fullname.setter
+#     def fullname(self, new_fullname: str):
+#         result = new_fullname.split()
+#         self.name = result[0]
+#         self.surname = result[1]
+#     @property
+#     def email(self):
+#         return f"{self.name}.{self.surname}.1@btu.edu.ge"
+# obj1 = Student("Luka","Natsvlishvili")
+# print(obj1.fullname)
+# obj1.fullname = "Nini Abramishvili"
+# print(obj1.email)
+
+# def f1(func):
+#     def wrapper(*args, **kwargs):
+#         print("Started")
+#         val = func(*args, **kwargs)
+#         print("Ended")
+#         return val
+#     return wrapper
+# @f1
+# def f(a, b = 9):
+#     print(a, b)
+#
+# @f1
+# def add(a, b):
+#     return a + b
+#
+# print(add(10,19))
+
+# def before_after(func):
+#     def wrapper(*args):
+#         print("before")
+#         func(*args)
+#         print("after")
+#     return wrapper
+#
+# class Test:
+#     @before_after
+#     def decorated_method(self):
+#         print("run")
+#
+# t = Test()
+# t.decorated_method()
+
+# import time
+#
+# def timer(func):
+#     def wrapper():
+#         before = time.time()
+#         func()
+#         print("Function took:", time.time() - before, "seconds")
+#     return wrapper()
+# @timer
+# def run():
+#     time.sleep(2)
+
+
+# import datetime
+#
+# def log(func):
+#     def wrapper(*args, **kwargs):
+#         with open("logs.txt", "a") as f:
+#             f.write("called function with " + " ".join([str(arg) for arg in args]) + " at " + str(datetime.datetime.now()) + "\n")
+#         val = func(*args, **kwargs)
+#         return val
+#     return wrapper
+#
+# @log
+# def run(a, b, c=9):
+#     print(a+b+c)
+#
+# run(1,3,c=9)
+
+# count = 0
+# while count < 5:
+#     count += 1
+#     if count == 4: continue
+#     print(count)
+
+
+# class Counter:
+#     x = 1
+#
+#     @classmethod
+#     def nxt(cls):
+#         cls.x *= 2
+#         return cls.x
+# for _ in range(4):
+#     print(Counter.nxt(), end=" ")
+
+# from functools import cache
+#
+# @cache
+# def fibo(n):
+#     if n <= 1:
+#         return 1
+#     return fibo(n-1) + fibo(n-2)
+#
+# print(fibo(499))
+
+# class Student:
+#     def __init__(self, firstname, lastname):
+#         self.__firstname = firstname
+#         self.__lastname = lastname
+#     def get_name(self):
+#         return self.__firstname
+#     def set_name(self, new_name):
+#         self.__firstname = new_name
+#     def del_name(self):
+#         del self.__firstname
+#     name = property(get_name, set_name, del_name)
+#
+# obj1 = Student("Luka","Natsvlishvili")
+# print(obj1.name)
+# obj1.name = "Levani"
+# print(obj1.name)
+# del obj1.name
+
+
+# შექმენით კლასი Student, ატრიბუტებით first, last, fullname, email.
+# class Student:
+#     def __init__(self, name, last):
+#         self.name = name
+#         self.last = last
+#         self.fullname = self.name + " " + self.last
+#         self.email = f"{self.name}.{self.last}.1@btu.edu.ge"
+# obj1 = Student("Luka", "Natsvlishvili")
+# print(obj1.fullname)
+# print(obj1.email)
+
+
+# class Student:
+#     def __init__(self, name, last):
+#         self.name = name
+#         self.last = last
+#     def fullname(self):
+#         return self.name + " " + self.last
+#     def email(self):
+#         return f"{self.name}.{self.last}.1@btu.edu.ge"
+# obj1 = Student("Luka", "Natsvlishvili")
+# print(obj1.fullname())
+# print(obj1.email())
+
+# lst = [1,2,3]
+# result = 0
+# for i in lst:
+#     for j in lst:
+#         result += (i == j)
+# print(result)
+
+# total = 0
+# for i in range(1,4):
+#     j = i
+#     while j > 0:
+#         total += (i + j)
+#         j -= 2
+# print(total)
+
+# print("Hi", "Luka, you are so generous", sep="! ")
+# print("Hello\nWorld")
+# print("Luka",end=" :) ")
+# print("You are so smart", end=" :)")
+
+# my_str = "Luka"
+# a = 5.3
+# print("%d" %a)
+# print("%5d" %a)
+# print("%s" %my_str)
+# print("%10s" %my_str)
+# print("%f" %a)
+# print("%.2f" %a)
+# print("Hi %s, nice to meet you. Do you have %.2f dollars?" %(my_str, a))
+
+# import math
+# x = math.sqrt(9)
+# print(x)
+
+
+# from math import sqrt, pi
+# r = sqrt(9)
+# area_of_circle = pi * r**2
+# print(area_of_circle)
+
+# from math import *
+# a = pi
+# print(a)
+
+# import random
+# a = random.random()
+# print(a)
+# b = random.uniform(1,10)
+# print(b)
+# c = random.randint(1,10)
+# print(c)
+# m = random.randrange(10)
+# n = random.randrange(10,100,2)
+# print(m)
+# print(n)
+
+# import random
+# a = random.randint(10,100)
+# print(a)
+
+# double = lambda x: x*2
+# print(double(5))
+
+# string slice
+
+# my_text = "Hello World!"
+# print(my_text[0:6])
+# print(my_text[:6])
+# print(my_text[6:])
+# print(my_text[:])
+
+# length = len(my_text)
+# last_symbol = my_text[length-1]
+# print(last_symbol)
+
+# my_text = "Hello World!"
+# index = 0
+# while index < len(my_text):
+#     print(my_text[index])
+#     index += 1
+#
+# for i in my_text:
+#     print(i)
+#
+# res = "ll" in my_text
+# print(res)
+
+# my_text = "Hello World!"
+
+# new_str = "J" + my_text[1:]
+# print(new_str)
+
+# new_str = my_text.replace("l","k")
+# print(new_str)
+
+# a = "hey, it's Lukaa"
+# print(a.capitalize())
+# print(a.upper())
+# print(a.lower())
+# print(a.isalpha())
+# print(a.isnumeric())
+# print(a.isalnum())
+# print(a.isdigit())
+# print(a.islower())
+# print(a.isupper())
+#
+# print(a.find("s"))
+# print(a.find("i",3))
+# print(a.count("a"))
+# print(a.startswith("hey"))
+
+# f = open('text1.txt','r')
+# content = f.read()
+# print(content)
+# f.close()
+
+# with open('text2.txt','r',encoding='UTF-8') as f:
+#     content = f.read()
+#     print(content)
+
+
+# f = open("text2.txt","r",encoding='UTF-8')
+
+# for line in f:
+#     print(line)
+
+# print(f.readline())
+# print(f.readline())
+# print(f.readline(4))
+
+# f = open("text2.txt","a+",encoding='UTF-8')
+# content = f.read()
+# # f.write("\nLuka Natvlishvili is a great programmer")
+# f.seek(5) #კურსორის ადგილმდებარეობის ცვლილება
+# pos = f.tell() #კურსორის ადგილმდებარეობის ჩვენება
+# print(pos)
+# print(f.name)
+# f.close()
+
+# import os
+# os.rename("text5.txt","my_text.txt")
+# os.remove("my_text.txt")
+
+# nested_list = [1,3,5,8,[9,10]]
+# print(nested_list[4][1])
+
+# my_list = [2,7,4,9,1,46,32]
+# my_list.sort()
+# my_list.reverse()
+# print(my_list)
+
+# my_txt = "Hello"
+# new_list = list(my_txt)
+# print(new_list)
+
+# txt = "I love Python programming language"
+# s = txt.split()
+# print(s)
+
+# txt1 = "I-love-you"
+# delimiter = "-"
+# s = txt1.split(delimiter)
+# print(s)
+
+# my_list = ["Good","morning","America"]
+# delimiter = " "
+# s = delimiter.join(my_list)
+# print(s)
+
+# def avarage_of_nums(*args):
+#     return sum(args)/len(args)
+# a = avarage_of_nums(1,5,7)
+# print(a)
+
+# double = [i*i for i in range(10) if i%2==0]
+# print(double)
+
+# my_set = {1,4,2,7}
+# my_set.add(9)
+# my_set.update([5,9,6])
+# print(my_set)
+# my_set.discard(10)
+# # my_set.remove(10)
+# my_set.pop()
+# print(my_set)
+
+# my_dict = {1:"Luka", "hey":"world", 5:[1,2,3], 7: {1,5,6}}
+# new_dict = my_dict.fromkeys({1,"hey",5},10)
+# print(new_dict)
+# for i in my_dict.keys():
+#     print(i)
+# for i in my_dict.values():
+#     print(i)
+# for i in my_dict.items():
+#     print(i)
+
+# print(len(my_dict))
+# print(my_dict.get(5,"Not Fount"))
+# my_dict["hey"] = "Jupiter"
+# print(my_dict)
+# del my_dict[1]
+# my_dict.pop(5)
+# print(my_dict)
+# my_dict.clear()
+# print(my_dict)
+
+# def print_items(**kwargs):
+#     print(kwargs)
+# print_items(kwargs_1 = 5, kwargs_2 = "Luka", kwargs_3 = 78)
+
+# def print_items(**kwargs):
+#     for key in kwargs:
+#         print(key, kwargs[key])
+# print_items(kwargs_1 = 5, kwargs_2 = "Luka", kwargs_3 = 78)
+
+# i = 3
+# while i > 1:
+#     for j in range(2):
+#         print(i - j,end=" ")
+#     i -= 1
+
+
+# try:
+#     print(5 + 'Luka')
+# except TypeError:
+#     print("Something went wrong with adding different types of values")
+#
+# try:
+#     print(5 / 0)
+# except ZeroDivisionError:
+#     print("Division by zero is not allowed")
+#
+# try:
+#     print(a)
+# except NameError:
+#     print("variable with that name does not exist")
+
+# my_list = [3,6,"Hello","Bye",6]
+# try:
+#     my_list[5] * 4
+#     print(my_list)
+# except IndexError:
+#     print("Element in list with that index does not exist!")
+
+# try:
+#     print(int("Luka"))
+# except ValueError:
+#     print("something went wrong")
+
+# try:
+#     a = int(input("Enter first number: "))
+#     b = int(input("Enter second number: "))
+#     print(a/b)
+# except ZeroDivisionError:
+#     print("division by zero is not allowed!")
+# except ValueError as v:
+#     print(v)
+# except:
+#     print("any other errors!")
+# else:
+#     print("this will be printed only if there will be no errors!")
+# finally:
+#     print("This will be printed in both cases")
+
+# try:
+#     a = int(input("Enter first number: "))
+#     b = int(input("Enter second number: "))
+#     if (b == 0):
+#         raise ZeroDivisionError("Division by zero is not allowed")
+# except Exception as e:
+#     print(e)
+
+# def avg(numbers):
+#     assert len(numbers)!=0, "List is empty"
+#     print(sum(numbers)/len(numbers))
+# t = [1,2,4,5]
+# print(avg(t))
+# k = []
+# print(avg(k))
+
+# t = [3,6,7]
+# my_iterator = iter(t)
+# try:
+#     for i in range(len(t)+1):
+#         print(my_iterator.__next__())
+# except StopIteration:
+#     print("Error")
+#
+#
+# def my_generator():
+#     i = 5
+#     while True:
+#         if i % 5 == 0: yield i
+#         i += 5
+# a = my_generator()
+# for i in range(10):
+#     print(next(a))
+
+# მისამართი მეხსიერებაში
+# my_list = [1,2,3]
+# print(hex(id(my_list)))
+
+# my_tuple = (1,3,[5,7],"Luka",{1:"Hello World"})
+# my_tuple = list(my_tuple)
+# my_tuple[0] = 5
+# my_tuple = tuple(my_tuple)
+# print(my_tuple)
+# print(hex(id(my_tuple)))
+# my_tuple[4][1] = "Goodbye World"
+# print(my_tuple)
+# print(hex(id(my_tuple)))
+# my_tuple[2].append(67)
+# print(my_tuple)
+# print(hex(id(my_tuple)))
+
+# i = 0
+# funcs = []
+# while i<5:
+#     funcs.append(lambda i=i: i)
+#     i += 1
+# print([f() for f in funcs])
