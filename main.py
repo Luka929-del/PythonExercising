@@ -1781,3 +1781,201 @@
 #     funcs.append(lambda i=i: i)
 #     i += 1
 # print([f() for f in funcs])
+
+# arr = [1,2,3]
+# for i in arr:
+#     arr.remove(i)
+# print(arr)
+
+# nums = [1,2,3]
+# res = map(lambda x: x + 1, nums)
+# for i in res:
+#     pass
+# print(list(res))
+
+
+# nums = [1,2,3]
+# res = list(map(lambda x: x + 1, nums))
+# print(res)
+
+
+# funcs = []
+# for i in range(3):
+#     funcs.append(lambda: i)
+# print([f() for f in funcs])
+
+# x = {1,2,3,4}
+# y = {3,4,5}
+# print(x.difference(y))
+
+# a = [1,2,3]
+# b = [10,20,30]
+# for i,j in zip(a,b):
+#     i = i + 100
+#     print(j)
+
+# my_str = "python"
+# result = my_str[::-2]
+# print(result)
+
+# class Counter:
+#     count = 0
+#     @classmethod
+#     def increment(cls):
+#         cls.count += 3
+# Counter.increment()
+# Counter.increment()
+# print(Counter.count)
+
+# from functools import reduce
+# a = [5]
+# for i in range(3):
+#     print(reduce(lambda x, y: x + y, a))
+
+# for i in range(1,5):
+#     print(i * "*", end="\n")
+
+# for i in range(1,5):
+#     print(" " * (5 - i) + i * "*")
+
+# for i in range(5,0,-1):
+#     print(i * "*", end="\n")
+
+# n = 4
+# for i in range(1, n + 1):
+#     print(" " * (n - i) + "*" * (2 * i - 1))
+
+# n = 4
+# for i in range(n, 0, -1):
+#     print(" " * (n - i) + "*" * (2 * i - 1))
+
+# clcoding = [1,2,3,4]
+# total = 0
+# for x in clcoding:
+#     total += x
+#     clcoding[0] = total
+# print(clcoding)
+
+# def f(x):
+#     return x + 1
+# m = map(f,[1,2,3])
+# m = map(f,m)
+# print(list(m))
+
+# a = [1,2]
+# a.append(a)
+# print(len(a))
+# print(a)
+
+# my_array = [[1,2,3],[4,5,6]]
+# def weird_func(array_2D):
+#     total = 0
+#     for array in array_2D:
+#         for element in array:
+#             total += element
+#     return total
+# print(weird_func(my_array))
+
+
+# fibonacci_list = [0,1]
+#
+# a = int(input("how many members do u want with fibonacci func? "))
+#
+# def fibonacci_func(a):
+#     for i in range(a-2):
+#         fibonacci_list.append(
+#             fibonacci_list[-1] + fibonacci_list[-2]
+#         )
+#     return fibonacci_list
+# print(fibonacci_func(a))
+
+# def fibonacci(n):
+#     if n <= 1:
+#         return n
+#     return fibonacci(n-1) + fibonacci(n-2)
+#
+# n = int(input("How many Fibonacci numbers? "))
+#
+# for i in range(n):
+#     print(fibonacci(i), end=" ")
+
+# class A:
+#     def __init__(self):
+#         return 10
+# obj = A()
+# print(obj)
+
+# class Car:
+#     pass
+# car1 = Car()
+# print(type(car1) == Car)
+
+# import __hello__
+# __hello__.main()
+
+# arr = [1,2,3]
+# for i in arr:
+#     i = i * 2
+# print(arr)
+
+# lst = [1,2,3]
+# out = []
+# for i in range(len(lst)):
+#     out.append(lst[i])
+#     break
+# print(out)
+
+# print(len("Python" * 2))
+
+# t = (1,(2,3),4)
+# s = 0
+# for i in t:
+#     if type(i) == tuple:
+#         s += sum(i)
+#     else:
+#         s += i
+# print(s)
+
+# t = (1,2,3)
+# for i in t:
+#     i = i * 2
+# print(t)
+
+# s = {1,2,3}
+# s.add([4,5])
+# print(s)
+
+# scores = {"A": 85, "B": 72, "C": 90}
+# opt = {"min": 80}
+# res = list(filter(lambda k: scores[k] <= opt["min"],scores))
+# print(res)
+
+# x = 10
+# def outer():
+#     x = 5
+#     return map(lambda y: y + x, range(3))
+# x = 20
+# result = list(outer())
+# print(result)
+
+# t = (5, -5, 10)
+# u = tuple(abs(i) for i in t)
+# v = u[::-1]
+# x = sum(v[i] for i in range(1, len(v)))
+# print(x)
+
+# def func(x, l=[]):
+#     l.append((x))
+#     return l
+# print(func(1))
+# print(func(2))
+
+# class Vanish:
+#     def __get__(self, obj, owner):
+#         del owner.x
+#         return 100
+# class A:
+#     x = Vanish()
+# a = A()
+# print(a.x, hasattr(A, "x"))
+# print(a.x)
