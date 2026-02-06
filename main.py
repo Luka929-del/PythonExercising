@@ -1979,3 +1979,33 @@
 # a = A()
 # print(a.x, hasattr(A, "x"))
 # print(a.x)
+
+# d = {'a': 1}
+# k = d.keys()
+# d['b'] = 2
+# print(list(k))
+
+# x = [i*i for i in range(3)]
+# print(list(x), list(x))
+
+# import calendar
+# year = 2026
+# cal = calendar.TextCalendar(calendar.MONDAY)
+# print(cal.formatyear(year))
+
+# t = (1,2,3,4,{5:"Luka"},[1,2,3],{6,7,8})
+# for i in t:
+#     if i == 3:
+#         i = 20
+# print(t)
+# t[4][5] = "Nini"
+# print(t)
+# t[5].append(45)
+# print(t)
+# t[6].add(9)
+# print(t)
+
+# arr = [10,20,30]
+# for i in arr:
+#     i = i * 10
+# print(arr)
